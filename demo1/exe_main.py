@@ -33,11 +33,10 @@ def write():
 obj1=get_xlsx_locla.xlxs_locla()
 data1=obj1.get_data()#获取Excel数据
 
-
-# ggg = httpGet.httpGet()#生成类对象
-# ggg.getTest(data1) #请求get接口将Excel数据传过去
-# ppp = httpPost.httpPost()
-# ppp.postTest(data1) #请求pot接口将Excel数据传过去
+ggg = httpGet.httpGet()#生成类对象
+ggg.getTest(data1) #请求get接口将Excel数据传过去
+ppp = httpPost.httpPost()
+ppp.postTest(data1) #请求pot接口将Excel数据传过去
 
 # def compare(str1,str2):
 #     if(str1 in str2):
@@ -59,4 +58,4 @@ def isyes():#excl判断预期结果和实际结果是否
         print("不通过")
         print(data1[0][7])
 
-isyes()
+#isyes()
