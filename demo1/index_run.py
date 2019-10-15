@@ -1,8 +1,9 @@
 # coding=UTF8
 import xlrd,xlwt
 #from xlutils.copy import copy
-from api_test import httpGet, httpPost,get_xlsx_locla
-
+from  api_test.get_xlsx_locla import xlxs_locla
+from api_test.httpGet import httpGet
+from api_test.httpPost import httpPost
 def read():
     wkbook = xlrd.open_workbook(r'.\123.xlsx')
     print(wkbook.sheet_names()[0])
@@ -26,17 +27,12 @@ def write():
     for i in range(len(rowdata)):
         booksheet.write(2, i, rowdata[i])
     workbook.save('test_xlwt.xls')
-
 #write();
 #read();
 # get请求
-obj1=get_xlsx_locla.xlxs_locla()
-data1=obj1.get_data()#获取Excel数据
-
-ggg = httpGet.httpGet()#生成类对象
-ggg.getTest(data1) #请求get接口将Excel数据传过去
-ppp = httpPost.httpPost()
-ppp.postTest(data1) #请求pot接口将Excel数据传过去
+data1=xlxs_locla().get_data()#获取Excel数据
+httpGet().getTest(data1) #请求get接口将Excel数据传过去
+# httpPost().postTest(data1) #请求pot接口将Excel数据传过去
 
 # def compare(str1,str2):
 #     if(str1 in str2):
@@ -50,12 +46,12 @@ ppp.postTest(data1) #请求pot接口将Excel数据传过去
 
 def isyes():#excl判断预期结果和实际结果是否
     rrr = eval(data1[0][6])
-    print(rrr[0])
+    # print(rrr[0])
     json_arr = {"isok": "ok", "result": {"key1": 468.00, "key12": "value1"}}
     if (json_arr[(rrr[0])][(rrr[1])] == (data1[0][7])):
-        print("通过")
+         print("通过")
     else:
         print("不通过")
         print(data1[0][7])
 
-#isyes()
+isyes()

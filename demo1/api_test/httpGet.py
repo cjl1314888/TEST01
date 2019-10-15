@@ -17,5 +17,5 @@ class httpGet:
         re = requests.get(url, params=dic1, headers=header, cookies=cook)
        # print (re.json()['data']['forecast'][0]['date']);
        # print(re.json()['data']['ganmao']);
-        print(re.json())
+       #  print(re.json())
         return 1;
